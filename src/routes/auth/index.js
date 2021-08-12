@@ -5,7 +5,7 @@ const crypto = require('crypto')
 
 router.route('/login')
   .post((req, res) => {
-    console.log(req.body)
+    
     if (!req.body.email || typeof req.body.email !== 'string') {
         return res.status(400).send({message: 'Email invalido'});
       }
@@ -13,8 +13,10 @@ router.route('/login')
         return res.status(400).send({message: 'Password invalido'});
       }
     //const md5_password = crypto.createHash('md5').update(req.body.password).digest("hex");
+  
     UsuarioSchema.findOne({email:req.body.email, password: req.body.password}).then((usuario) => {
       
+      console.log(usuario)
         if (usuario) {
             res.status(200).send(usuario);
         } else {

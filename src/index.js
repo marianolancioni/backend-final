@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 var cors = require('cors');
 mongoose.connect(
-  'mongodb+srv://mariano:test123@mcga-final.rudhv.mongodb.net/mcga-final?retryWrites=true&w=majority', 
+  'mongodb+srv://mariano:test123@mcga-final.rudhv.mongodb.net/mcga?retryWrites=true&w=majority', 
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

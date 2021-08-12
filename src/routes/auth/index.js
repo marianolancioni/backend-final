@@ -12,9 +12,9 @@ router.route('/login')
       if (!req.body.password || typeof req.body.password !== 'string') {
         return res.status(400).send({message: 'Password invalido'});
       }
-    //const md5_password = crypto.createHash('md5').update(req.body.password).digest("hex");
+    const md5_password = crypto.createHash('md5').update(req.body.password).digest("hex");
   
-    UsuarioSchema.findOne({email:req.body.email, password: req.body.password}).then((usuario) => {
+    UsuarioSchema.findOne({email:req.body.email, password: md5_password}).then((usuario) => {
       
       console.log(usuario)
         if (usuario) {
